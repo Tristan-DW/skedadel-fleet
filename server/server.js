@@ -119,7 +119,9 @@ if (process.env.NODE_ENV === 'production') {
   const __dirname = path.resolve();
   app.use(express.static(path.join(__dirname, 'dist')));
 
-  app.get('*', (req, res) => {
+  // Catch-all route for SPA - must be AFTER all API routes
+  // Only serve index.html for non-API routes
+  app.get(/^(?!\/api).*$/, (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
   });
 } else {
