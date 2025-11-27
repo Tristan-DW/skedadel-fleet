@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skedadel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'background': '#111827', // Dark blue-gray
+              'surface': '#1F2937', // Lighter blue-gray
+              'primary': '#EF4444', // Red
+              'secondary': '#374151', // Mid gray
+              'text-primary': '#F9FAFB', // Off-white
+              'text-secondary': '#9CA3AF', // Lighter gray
+              'border': '#374151', // Mid gray
+              'success': '#10B981', // Green
+              'warning': '#F59E0B', // Yellow
+              'danger': '#EF4444', // Red
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0",
+    "recharts": "https://aistudiocdn.com/recharts@^3.2.1",
+    "@googlemaps/react-wrapper": "https://aistudiocdn.com/@googlemaps/react-wrapper@^1.1.35",
+    "@faker-js/faker": "https://aistudiocdn.com/@faker-js/faker@^10.0.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-background text-text-primary">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>

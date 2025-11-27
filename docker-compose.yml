@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: skedadel-app
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+      PORT: 5000
+      USE_SQL_DATABASE: "true"
+      # External Database Configuration
+      DB_HOST: 195.35.53.7
+      DB_PORT: 3306
+      DB_NAME: u682067506_fleet_system
+      DB_USER: u682067506_fleet_system
+      DB_PASSWORD: '5napu6cLX|x,'
+      JWT_SECRET: skedadel-jwt-secret-key-2024-change-in-production
+      JWT_EXPIRE: 30d
+    networks:
+      - skedadel-network
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    container_name: skedadel-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - app
+    networks:
+      - skedadel-network
+
+networks:
+  skedadel-network:
+    driver: bridge

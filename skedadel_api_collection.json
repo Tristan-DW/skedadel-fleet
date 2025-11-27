@@ -1,0 +1,431 @@
+{
+  "info": {
+    "_postman_id": "skedadel-api-collection",
+    "name": "Skedadel API",
+    "description": "Collection of API endpoints for Skedadel Fleet Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Order #123\",\n  \"description\": \"Deliver package\",\n  \"customerName\": \"John Doe\",\n  \"customerPhone\": \"+27821234567\",\n  \"origin\": {\n    \"lat\": -26.2041,\n    \"lng\": 28.0473,\n    \"address\": \"Johannesburg\"\n  },\n  \"destination\": {\n    \"lat\": -26.1952,\n    \"lng\": 28.0340,\n    \"address\": \"Sandton\"\n  },\n  \"storeId\": \"REPLACE_WITH_STORE_ID\",\n  \"priority\": \"High\",\n  \"orderType\": \"DELIVERY\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/orders",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "orders"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Drivers",
+      "item": [
+        {
+          "name": "Create Driver",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Jane Driver\",\n  \"phone\": \"+27829876543\",\n  \"email\": \"jane@example.com\",\n  \"status\": \"Available\",\n  \"location\": {\n    \"lat\": -26.2041,\n    \"lng\": 28.0473,\n    \"address\": \"Depot\"\n  },\n  \"teamId\": \"REPLACE_WITH_TEAM_ID\",\n  \"vehicleId\": \"REPLACE_WITH_VEHICLE_ID\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/drivers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Drivers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/drivers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "drivers"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Stores",
+      "item": [
+        {
+          "name": "Create Store",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Main Store\",\n  \"manager\": \"Manager Mike\",\n  \"status\": \"ONLINE\",\n  \"location\": {\n    \"lat\": -26.2041,\n    \"lng\": 28.0473,\n    \"address\": \"123 Main St\"\n  },\n  \"hubId\": \"REPLACE_WITH_HUB_ID\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/stores",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stores"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Stores",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/stores",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stores"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Hubs",
+      "item": [
+        {
+          "name": "Create Hub",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Central Hub\",\n  \"location\": {\n    \"lat\": -26.2041,\n    \"lng\": 28.0473,\n    \"address\": \"Central District\"\n  },\n  \"geofenceId\": \"REPLACE_WITH_GEOFENCE_ID\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/hubs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hubs"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Hubs",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/hubs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "hubs"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Geofences",
+      "item": [
+        {
+          "name": "Create Geofence",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"JHB Central\",\n  \"color\": \"#ff0000\",\n  \"coordinates\": [\n    {\"lat\": -26.2, \"lng\": 28.0},\n    {\"lat\": -26.21, \"lng\": 28.0},\n    {\"lat\": -26.21, \"lng\": 28.01},\n    {\"lat\": -26.2, \"lng\": 28.01}\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/geofences",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "geofences"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Geofences",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/geofences",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "geofences"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exclusion Zones",
+      "item": [
+        {
+          "name": "Create Exclusion Zone",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Construction Site\",\n  \"type\": \"No-go\",\n  \"coordinates\": [\n    {\"lat\": -26.25, \"lng\": 28.05},\n    {\"lat\": -26.26, \"lng\": 28.05},\n    {\"lat\": -26.26, \"lng\": 28.06},\n    {\"lat\": -26.25, \"lng\": 28.06}\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/exclusion-zones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "exclusion-zones"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Exclusion Zones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/exclusion-zones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "exclusion-zones"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Challenges",
+      "item": [
+        {
+          "name": "Create Challenge",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Speedy Delivery\",\n  \"description\": \"Complete 10 deliveries in 24 hours\",\n  \"type\": \"COMPLETE_ORDERS\",\n  \"goal\": 10,\n  \"points\": 100,\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/challenges",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "challenges"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Challenges",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/challenges",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "challenges"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Invoices",
+      "item": [
+        {
+          "name": "Create Invoice",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"clientName\": \"Acme Corp\",\n  \"amount\": 1500.00,\n  \"dueDate\": \"2023-12-31\",\n  \"status\": \"Pending\",\n  \"storeId\": \"REPLACE_WITH_STORE_ID\",\n  \"lineItems\": [\n    {\"description\": \"Delivery Service\", \"amount\": 1500.00}\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/invoices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoices"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Invoices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/invoices",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "invoices"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "item": [
+        {
+          "name": "Create Webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"https://example.com/webhook\",\n  \"events\": [\"order.created\", \"order.status_changed\"],\n  \"isActive\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhooks"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Webhooks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/webhooks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "webhooks"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000/api",
+      "type": "string"
+    }
+  ]
+}
