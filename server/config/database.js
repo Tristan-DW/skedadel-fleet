@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize';
 import dotenv from 'dotenv';
+import mysql2 from 'mysql2'; // Explicit import to force bundling
 
 // Load environment variables
 dotenv.config();
@@ -12,6 +13,7 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST || 'localhost',
     dialect: 'mysql',
+    dialectModule: mysql2, // Explicitly provide the dialect module
     port: process.env.DB_PORT || 3306,
     logging: process.env.NODE_ENV === 'development' ? console.log : false,
     define: {
@@ -24,7 +26,14 @@ const sequelize = new Sequelize(
         requestTimeout: 120000 // 120 seconds query timeout (increased for remote database)
       }
     },
-    pool: {
+    pool: process.env.VERCEL ? {
+      // Serverless-optimized pool settings
+      max: 2, // Minimal connections for serverless
+      min: 0, // No minimum to allow scaling to zero
+      acquire: 30000, // 30 seconds
+      idle: 10000, // Release idle connections quickly
+    } : {
+      // Traditional server pool settings
       max: 10, // Increased maximum number of connections in pool
       min: 2, // Increased minimum number of connections in pool
       acquire: 120000, // Increased to 120 seconds - maximum time that pool will try to get connection
