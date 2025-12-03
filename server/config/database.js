@@ -21,23 +21,15 @@ const sequelize = new Sequelize(
       underscored: true, // Use snake_case for fields in the database
     },
     dialectOptions: {
-      connectTimeout: 120000, // 120 seconds connection timeout (increased for remote database)
-      options: {
-        requestTimeout: 120000 // 120 seconds query timeout (increased for remote database)
-      }
+      connectTimeout: 60000, // 60 seconds connection timeout
+      // Removed invalid nested 'options' object
     },
-    pool: process.env.VERCEL ? {
-      // Serverless-optimized pool settings
-      max: 2, // Minimal connections for serverless
+    pool: {
+      // Serverless-optimized pool settings - strictly limited
+      max: 1, // STRICTLY 1 connection per lambda to avoid max_user_connections error
       min: 0, // No minimum to allow scaling to zero
       acquire: 30000, // 30 seconds
-      idle: 10000, // Release idle connections quickly
-    } : {
-      // Traditional server pool settings
-      max: 10, // Increased maximum number of connections in pool
-      min: 2, // Increased minimum number of connections in pool
-      acquire: 120000, // Increased to 120 seconds - maximum time that pool will try to get connection
-      idle: 30000, // Increased to 30 seconds - maximum time a connection can be idle
+      idle: 5000, // Release idle connections very quickly (5s)
     },
   }
 );
