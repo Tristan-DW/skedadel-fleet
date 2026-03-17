@@ -1,4 +1,17 @@
-# Skedadel Fleet Management System
+<div align="center">
+
+![GitHub last commit](https://img.shields.io/github/last-commit/Tristan-DW/skedadel-fleet?style=for-the-badge)
+![GitHub stars](https://img.shields.io/github/stars/Tristan-DW/skedadel-fleet?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues/Tristan-DW/skedadel-fleet?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-blue?style=for-the-badge)
+
+# skedadel-fleet
+
+> **skedadel fleet**
+
+</div>
+
+---
 
 A comprehensive fleet management solution for last-mile delivery operations. This system provides real-time tracking, order management, driver assignment, geofencing, and analytics capabilities.
 
@@ -148,3 +161,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Express.js for the backend API
 - MongoDB and MySQL for database options
 - Sequelize for SQL ORM
+
+---
+
+<div align="center">
+
+**Made with love by [Tristan Wentzel](https://github.com/Tristan-DW)**
+
+</div>
